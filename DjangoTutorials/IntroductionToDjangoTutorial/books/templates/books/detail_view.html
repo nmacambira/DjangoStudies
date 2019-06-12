@@ -1,0 +1,40 @@
+{% include 'books/base.html' %}
+
+{% block content %}
+<h1>{{ book.title }}</h1>
+<h2>{{ book.subtitle }}</h2>
+<!--<p>Author(s):-->
+<!--{% for author in book.authors.all %}-->
+<!--{{ author }}-->
+<!--{% endfor %}-->
+<!--</p>-->
+<p>Author(s):
+<ul>
+    {% for author in book.authors.all %}
+        <li>{{ author.given_name }} {{ author.family_name }}</li>
+    {% empty %}
+        <li>No authors</li>
+    {% endfor %}
+</ul>
+</p>
+<p>Cover:
+    {% if book.cover_image %}
+        <img src="{{ book.cover_image.url }}">
+    {% else %}
+        Not available
+    {% endif %}
+</p>
+<p>{{ book.blurb|safe }}</p>
+<p>Pages: {{ book.num_pages }}</p>
+<p>Price: ${{ book.price|floatformat:2 }}</p>
+<p>Status:
+    {% if book.in_print %}
+        In print
+    {% else %}
+        Out of print
+    {% endif %}
+</p>
+<p>Publisher: {{ book.publisher.title|default:"Publisher unavailable" }}</p>
+<p>Published: {{ book.date_printed|date:"M Y" }}</p>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'posts/layout.html' %}
+
+{% block content %}
+<h3 class="center-align red lighten-3">{{post.title}}</h3>
+
+<p>URL of this page: {{ request.path }}</p>
+<p>Full URL of this page: {{ request.get_full_path }}</p>
+
+<div class="card">
+    <div class="card-content">
+        {{post.body}}
+    </div>
+    <div class="card-action">
+        {{post.create_at}}
+    </div>
+</div>
+<a href="/posts" class="btn">Go back</a>
+<!--{% if '/posts' in request.path %}-->
+    <!--<a href="/posts" class="btn">Go back</a>-->
+<!--{% else %}-->
+    <!--<a href="/" class="btn">Go back</a>-->
+<!--{% endif %}-->
+{% endblock %}

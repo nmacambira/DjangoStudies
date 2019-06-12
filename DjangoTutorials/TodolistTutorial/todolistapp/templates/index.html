@@ -1,0 +1,13 @@
+<!--HELLO FROM INDEX {{name}}-->
+
+{% include 'partials/header.html' %}
+<div class="container">
+    <a href="/todos/add" class="waves-effect waves-light btn">Add Todo</a>
+    <ul>
+        {% for todo in todos %}
+        <li><a href="/todos/details/{{todo.id}}">{{todo.title}}</a>: {{todo.text}}</li>
+        {% endfor %}
+    </ul>
+    <br>
+</div>
+{% include 'partials/footer.html' %}

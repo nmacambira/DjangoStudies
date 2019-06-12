@@ -1,0 +1,21 @@
+<!--<h1>Hello from index.html</h1>-->
+{% extends 'posts/layout.html' %}
+
+{% block content %}
+<h3 class="center-align red lighten-3">{{title}}</h3>
+
+<p>URL of this page: {{ request.path }}</p>
+<p>Full URL of this page: {{ request.get_full_path }}</p>
+
+<ul class="collection">
+    {% for post in posts %}
+    <li class="collection-item">
+        {% if request.path == '/posts/' %}
+            <a href="details/{{post.id}}">{{post.title}}</a>
+        {% else %}
+            <a href="posts/details/{{post.id}}">{{post.title}}</a>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

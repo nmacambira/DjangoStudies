@@ -1,0 +1,32 @@
+{% include 'books/base.html' %}
+
+{% block content %}
+    <h1>{{ title }}</h1>
+
+{% comment %}
+    <!--{% for book in books %}-->
+    <!--<p>{{ book.title }}</p>-->
+    <!--{% endfor %}-->
+{% endcomment %}
+
+{% comment %}
+    TODO: Move the style to a stylesheet!
+{% endcomment %}
+<!--<style type="text/css">-->
+    <!--tr.even {-->
+        <!--background-color: lightgrey-->
+    <!--}-->
+    <!--tr.odd {-->
+        <!--background-color: lightpink-->
+    <!--}-->
+<!--</style>-->
+
+<table>
+{% for book in books %}
+    <tr class="{% cycle 'odd' 'even' %}">
+        <td>{{ book.title }}</td>
+        <td>{{ book.price }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

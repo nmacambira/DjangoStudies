@@ -1,0 +1,11 @@
+.info-text {
+    font-weight: 300;
+}
+
+.field {
+    margin-top: 10px;
+}
+
+#email {
+    text-transform: lowercase;
+}
