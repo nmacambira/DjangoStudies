@@ -1,6 +1,6 @@
 # Django Studies
 
-Just some Django studies.
+Just some Django studies. 
 
 ## Description
 
